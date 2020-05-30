@@ -22,3 +22,17 @@ after_success:
     - docker push surajsingla333/complex-nginx
     - docker push surajsingla333/complex-server
     - docker push surajsingla333/complex-worker
+
+# AWS Production setup and commands
+# deploy:
+#     provider: elasticebeanstalk
+#     region: us-west-1
+#     app: multi-docker
+#     env: MultiDocker-env
+#     bucket_name: elastibeanstalk-us-west-1-306476627547
+#     bucket_path: docker-multi
+#     on:
+#         branch: master
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key:
+#         secure: $AWS_SECRET_KEY

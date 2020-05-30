@@ -2,10 +2,19 @@ version: '3'
 services:
     db:
         image: 'postgres:latest'
-        environment: 
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres_password
-            - POSTGRES_DB=postgres
+        environment:
+            - POSTGRES_HOST_AUTH_METHOD=trust
+    mongo:
+        image: mongo
+        restart: always
+        # environment:
+        #     - MONGO_INITDB_ROOT_USERNAME=root
+        #     - MONGO_INITDB_ROOT_PASSWORD=rootPass
+
+    adminmongo:
+        image: "mrvautin/adminmongo"
+        ports:
+            - '1234:1234'
     redis:
         image: 'redis:latest'
     nginx:
@@ -15,10 +24,17 @@ services:
             context: ./nginx
         ports:
             - '4000:80'
+    # adminer:
+    #     image: adminer
+    #     restart: always
+    #     ports:
+    #         - 8080:8080
     api:
         build:
             dockerfile: Dockerfile.dev
             context: ./server
+        depends_on: 
+            - db
         volumes:
             - /app/node_modules
             - ./server:/app
@@ -30,6 +46,9 @@ services:
             - PGDATABASE=postgres
             - PGPASSWORD=postgres_password
             - PGPORT=5432
+            - MONGOHOST=mongo
+            - MONGOPORT=27017
+            - MONGODATABASE=mongo
     client:
         build:
             dockerfile: Dockerfile.dev

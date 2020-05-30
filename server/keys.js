@@ -5,5 +5,8 @@ module.exports = {
   pgHost: process.env.PGHOST,
   pgDatabase: process.env.PGDATABASE,
   pgPassword: process.env.PGPASSWORD,
-  pgPort: process.env.PGPORT
+  pgPort: process.env.PGPORT,
+  mongoHost: process.env.MONGOHOST,
+  mongoPort: process.env.MONGOPORT,
+  mongoDatabase: process.env.MONGODATABASE,
 };
