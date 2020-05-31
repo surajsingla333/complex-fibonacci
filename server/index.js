@@ -125,7 +125,7 @@ const redisPublisher = redisClient.duplicate();
 
 console.log("INSIDE EXPRESS");
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     console.log("GETTING HOME");
     pgClient
     .query('CREATE TABLE IF NOT EXISTS values (number INT)', (err, res) => {
@@ -140,7 +140,7 @@ app.get('/', (req, res) => {
     res.send('Hi');
 });
 
-app.get('/values/all', async (req, res) => {
+app.get('/api/values/all', async (req, res) => {
 
     Value.find(function(err, number){
         if(err) return res.error(err);
@@ -152,13 +152,13 @@ app.get('/values/all', async (req, res) => {
     // res.status(200).send(values);
 });
 
-app.get('/values/current', async (req, res) => {
+app.get('/api/values/current', async (req, res) => {
     redisClient.hgetall('values', (err, values) => {
         res.send(values);
     });
 });
 
-app.post('/values', async (req, res) => {
+app.post('/api/values', async (req, res) => {
     const index = req.body.index;
 
     if (parseInt(index) > 40) {
