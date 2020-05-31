@@ -10,7 +10,7 @@ docker push surajsingla333/complex-client:$SHA
 docker push surajsingla333/complex-server-kubernetes:$SHA
 docker push surajsingla333/complex-worker:$SHA
 
-kubectl apply -f k8s
-kubectl set image deployments/server-deployment server=surajsingla333/complex-server-kubernetes:$SHA
-kubectl set image deployments/client-deployment server=surajsingla333/complex-client:$SHA
-kubectl set image deployments/worker-deployment server=surajsingla333/complex-worker:$SHA
+# kubectl apply -f k8s
+# kubectl set image deployments/server-deployment server=surajsingla333/complex-server-kubernetes:$SHA
+# kubectl set image deployments/client-deployment server=surajsingla333/complex-client:$SHA
+# kubectl set image deployments/worker-deployment server=surajsingla333/complex-worker:$SHA
