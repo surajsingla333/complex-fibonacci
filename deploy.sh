@@ -9,13 +9,13 @@ docker build -t surajsingla333/complex-server-kubernetes:latest -t surajsingla33
 # docker build -t surajsingla333/complex-worker:$SHA -f ./worker/Dockerfile ./worker
 docker build -t surajsingla333/complex-worker:latest -t surajsingla333/complex-worker:$SHA -f ./worker/Dockerfile ./worker
 
-docker push surajsingla333/complex-client:latest
-docker push surajsingla333/complex-server-kubernetes:latest
-docker push surajsingla333/complex-worker:latest
+docker push surajsingla333/complex-client
+docker push surajsingla333/complex-server-kubernetes
+docker push surajsingla333/complex-worker
 
-docker push surajsingla333/complex-client:$SHA
-docker push surajsingla333/complex-server-kubernetes:$SHA
-docker push surajsingla333/complex-worker:$SHA
+# docker push surajsingla333/complex-client:$SHA
+# docker push surajsingla333/complex-server-kubernetes:$SHA
+# docker push surajsingla333/complex-worker:$SHA
 
 # kubectl apply -f k8s
 # kubectl set image deployments/server-deployment server=surajsingla333/complex-server-kubernetes:$SHA
