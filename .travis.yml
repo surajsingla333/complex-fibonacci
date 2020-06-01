@@ -14,7 +14,8 @@ before_install:
     # - gcloud config set project {project-id on gcloud}
     # - gcloud config set compute/zone {location}
     # - gcloud container clusters get-credentials multi-cluster
-    - echo '${SHA}'
+    - echo $SHA
+    - $SHA
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker build -t surajsingla333/kubernet-test -f ./client/Dockerfile.dev ./client
 
