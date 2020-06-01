@@ -1,3 +1,7 @@
+$SHA
+export SHA=$"git rev-parse HEAD"
+$SHA
+
 # docker build -t surajsingla333/complex-client:$SHA -f ./client/Dockerfile ./client
 docker build -t surajsingla333/complex-client:latest -t surajsingla333/complex-client:$SHA -f ./client/Dockerfile ./client
 # docker build -t surajsingla333/complex-server-kubernetes:$SHA -f ./server/Dockerfile ./server
