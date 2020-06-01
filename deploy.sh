@@ -1,5 +1,5 @@
 $SHA
-export SHA=$"git rev-parse HEAD"
+# export SHA=$"git rev-parse HEAD"
 $SHA
 
 # docker build -t surajsingla333/complex-client:$SHA -f ./client/Dockerfile ./client

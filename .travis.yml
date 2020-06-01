@@ -3,7 +3,7 @@ services:
     - docker
 env:
     global:
-        - SHA=$"git rev-parse HEAD"
+        - SHA="git_rev-parse_HEAD"
         - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
     # - openssl command
