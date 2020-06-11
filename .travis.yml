@@ -23,6 +23,24 @@ after_success:
     - docker push surajsingla333/complex-server
     - docker push surajsingla333/complex-worker
 
+# AZURE Production setup and commands
+deploy:
+    provider: azure_web_app
+#     region: us-west-1
+#     app: multi-docker
+#     env: MultiDocker-env
+#     bucket_name: elastibeanstalk-us-west-1-306476627547
+#     bucket_path: docker-multi
+    username: $AZURE_USERNAME
+    password: $AZURE_PASSWORD
+    site: https://fibonacci-complex.azurewebsites.net
+    on:
+        repo: surajsingla333/complex-fibonacci
+        branch: master
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key:
+#         secure: $AWS_SECRET_KEY   
+
 # AWS Production setup and commands
 # deploy:
 #     provider: elasticebeanstalk
